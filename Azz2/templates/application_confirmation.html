@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Өтінішті растау</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{{ url_for('logout') }}">Шығу</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Өтінішті жібергеніңіз үшін рахмет!</h2>
+        <p>Сіздің өтінішіңіз сәтті жіберілді. Әкімші шешім қабылдауды күтіңіз.</p>
+        <a href="{{ url_for('courier_dashboard') }}">Курьер кабинетіне оралу</a>
+    </main>
+</body>
+</html>

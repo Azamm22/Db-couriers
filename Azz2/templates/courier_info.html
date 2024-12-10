@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курьер кабинет</title>
+    <style>
+        /* Жалпы стильдер */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #16a085;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        nav {
+            background-color: #2c3e50;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            margin: 0 10px;
+            background-color: #34495e;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #16a085;
+        }
+
+        /* Негізгі контент */
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .dashboard-header h2 {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        .dashboard-header a {
+            padding: 10px 20px;
+            background-color: #16a085;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .dashboard-header a:hover {
+            background-color: #1abc9c;
+        }
+
+        .status-box {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .status-box h3 {
+            margin: 0 0 10px;
+            font-size: 1.6rem;
+        }
+
+        .status-box p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .status-box button {
+            padding: 10px 20px;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .status-box button:hover {
+            background-color: #34495e;
+        }
+
+        /* Суреттер үшін стиль */
+        .image-section img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Респонсивті стильдер */
+        @media (max-width: 768px) {
+            .dashboard-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Курьер кабинетіне қош келдіңіз!</h1>
+    </header>
+
+    <nav>
+        <a href="{{ url_for('courier_dashboard') }}">Менің кабинетім</a>
+        <a href="{{ url_for('application') }}">Анкета толтыру</a>
+        <a href="{{ url_for('logout') }}">Шығу</a>
+    </nav>
+
+    <div class="container">
+        <div class="dashboard-header">
+            <h2>Өтінішіңіздің мәртебесі</h2>
+            <a href="{{ url_for('application') }}">Өтінішті өңдеу</a>
+        </div>
+
+        <div class="status-box">
+            <h3>Өтінішіңіздің мәртебесі: {{ status }}</h3>
+            {% if status == "pending" %}
+                <p>Өтінішіңіз қарастырылуда. Әкімшінің шешімін күтіңіз.</p>
+            {% elif status == "accepted" %}
+                <p>Құттықтаймыз! Өтінішіңіз қабылданды, сіз енді белсенді курьер боласыз. Тапсырыстарды орындауды бастауға болады.</p>
+                <button>Қол жетімді тапсырыстарды қарау</button>
+            {% elif status == "rejected" %}
+                <p>Өкінішке орай, сіздің өтінішіңіз қабылданбады. Себебі: {{ reason }}.</p>
+                <p>Қателерді түзетіп, өтінішті қайта жіберуге тырысыңыз.</p>
+                <button>Қайта тырысу</button>
+            {% else %}
+                <p>Өтініш беру үшін анкетаны толтырыңыз.</p>
+                <button onclick="window.location.href='{{ url_for('application') }}'">Анкетаға өту</button>
+            {% endif %}
+        </div>
+
+        <div class="image-section">
+            <h3>Неліктен Jyldam таңдауыңыз керек?</h3>
+            <img src="{{ url_for('static', filename='courier_image.jpg') }}" alt="Курьер Jyldam">
+            <p>Jyldam серіктес курьері бола отырып, өз кестеңіз бойынша жұмыс істеп, қалаған уақытта және қалаған жерде жеткізуді жүзеге асыра аласыз. Жұмысқа бастау өте оңай, тәжірибе қажет емес!</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

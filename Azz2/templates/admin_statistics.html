@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статистика</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #2c3e50;
+            color: white;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+        }
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 15px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            color: white;
+            padding: 10px 15px;
+            background-color: #34495e;
+            border-radius: 5px;
+        }
+        nav ul li a:hover {
+            background-color: #16a085;
+        }
+        main {
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="{{ url_for('admin_dashboard') }}">Jyldam</a></h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('admin_dashboard') }}">Басты бет</a></li>
+                <li><a href="{{ url_for('admin_applications') }}">Өтініштер</a></li>
+                <li><a href="{{ url_for('admin_couriers') }}">Курьерлер</a></li>
+                <li><a href="{{ url_for('admin_application_history') }}">Өтініш тарихы</a></li>
+                <li><a href="{{ url_for('admin_statistics') }}">Статистика</a></li>
+                <li><a href="{{ url_for('admin_trends') }}">Трендтер</a></li>
+                <li><a href="{{ url_for('logout') }}">Шығу</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Статистика</h2>
+        <table>
+            <tr>
+                <th>Барлық өтініштер саны</th>
+                <td>{{ total_applications }}</td>
+            </tr>
+            <tr>
+                <th>Қабылданған өтініштер</th>
+                <td>{{ accepted_applications }}</td>
+            </tr>
+            <tr>
+                <th>Қабылданбаған өтініштер</th>
+                <td>{{ rejected_applications }}</td>
+            </tr>
+            <tr>
+                <th>Күтіп тұрған өтініштер</th>
+                <td>{{ pending_applications }}</td>
+            </tr>
+            <tr>
+                <th>Барлық өтініштер саны</th>
+                <td>{{ total_couriers }}</td>
+            </tr>
+        </table>
+    </main>
+</body>
+</html>

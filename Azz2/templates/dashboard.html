@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курьер кабинет</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        header {
+            background-color: #1d1d1f;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .button {
+            background-color: #fcb300;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            display: inline-block;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #ffb100;
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .benefit-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .faq {
+            margin-top: 40px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq h3 {
+            cursor: pointer;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .faq p {
+            display: none;
+            margin-left: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Добавление нового дизайна */
+        #1Lm2RqtLIX7N9reJ9rwv1S {
+            margin-top: 50px;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #1Lm2RqtLIX7N9reJ9rwv1S h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        .sc-3eb21692-2 {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .sc-3eb21692-3 {
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .sc-3eb21692-4 {
+            font-size: 40px;
+            color: #fcb300;
+            margin-right: 20px;
+        }
+
+        .sc-3eb21692-6 {
+            font-size: 20px;
+        }
+
+        .sc-3eb21692-7 {
+            font-size: 50px;
+            color: #fcb300;
+        }
+
+        .sc-3eb21692-9 {
+            color: #333;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .notification {
+            background-color: #fcb300;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+/* Центрирование секции преимуществ */
+.benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center;     /* Центрируем по вертикали */
+    text-align: center;      /* Центрируем текст */
+    max-width: 1200px;       /* Максимальная ширина */
+    margin-left: auto;       /* Автоматические отступы слева */
+    margin-right: auto;      /* Автоматические отступы справа */
+}
+
+/* Блоки с преимуществами */
+.benefit-item {
+    background: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
+    padding: 20px;
+    border-radius: 10px;  /* Сглаженные углы */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Мягкая тень для 3D эффекта */
+    text-align: center;
+    backdrop-filter: blur(10px); /* Эффект размытия фона */
+    transition: transform 0.3s ease-in-out; /* Плавное увеличение при наведении */
+}
+
+/* Эффект при наведении */
+.benefit-item:hover {
+    transform: translateY(-5px); /* Легкое поднятие элемента */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Увеличение тени */
+}
+
+/* Мобильная адаптивность */
+@media (max-width: 768px) {
+    .benefits {
+        grid-template-columns: 1fr; /* В одну колонку на маленьких экранах */
+    }
+}
+
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="{{ url_for('logout') }}">Шығу</a>
+    </nav>
+    <h1>Қош келдіңіз!</h1>
+</header>
+
+<main>
+    {% if status == "accepted" %}
+    <div class="notification">
+        <p>Сіздің өтінішіңіз мақұлданды! Енді сіз курьер болып жұмыс істей аласыз.</p>
+    </div>
+    {% elif status == "rejected" %}
+    <div class="notification" style="background-color: #e74c3c;">
+        <p>Өкінішке орай, сіздің өтінішіңіз қабылданбады. Себебі: {{ reason }}</p>
+    </div>
+    {% elif status == "pending" %}
+    <div class="notification" style="background-color: #fcb300;">
+        <p>Өтінішіңіз қаралуда. Қабылданғанын күтіңіз.</p>
+    </div>
+    {% endif %}
+
+    <!-- О компании "Jyldam" -->
+    <section class="section">
+        <h2>Неліктен Jyldam?</h2>
+        <p>Jyldam серіктес курьері бола отырып, өз графигініз бойынша жұмыс істеп, қалаған уақытта және қалаған жерде жеткізуді жүзеге асыра аласыз. Жұмысқа бастау өте оңай, тәжірибе қажет емес!</p>
+    </section>
+
+    <!-- Преимущества работы -->
+<section class="section">
+    <h2>Біздің артықшылықтарымыз</h2>
+    <div class="benefits">
+        <!-- Преимущество: Хороший доход -->
+        <div class="benefit-item">
+            <h3>Жақсы табыс</h3>
+            <ul>
+                <li>✔ Жеткізілген тапсырыстар көп болған сайын табысыңыз да көбірек болады.</li>
+                <li>✔ Әр тапсырыс үшін және жеткізу арақашықтығы үшін қаражат аласыз.</li>
+            </ul>
+        </div>
+
+        <!-- Преимущество: Гибкий график -->
+        <div class="benefit-item">
+            <h3>Икемді кесте</h3>
+            <ul>
+                <li>✔ Жұмыс уақытын өзіңіз анықтайсыз.</li>
+                <li>✔ Оқу, жұмыс немесе демалыс уақытында жеткізу жасауға болады.</li>
+            </ul>
+        </div>
+
+        <!-- Преимущество: Отличная поддержка -->
+        <div class="benefit-item">
+            <h3>Керемет қолдау</h3>
+            <ul>
+                <li>✔ Қолдау қызметі сіздің сұрақтарыңызға жауап беруге дайын.</li>
+                <li>✔ Қосымша қала бойынша ең жақсы маршруттарды табуға көмектеседі.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Новый блок "Начните в 3 простых шага" -->
+    <section id="1Lm2RqtLIX7N9reJ9rwv1S" class="sc-3eb21692-0 iA-dKfB">
+        <h2 class="sc-3eb21692-1 inzwXa cb_typographyClassNameNew_display_d15c">3 қарапайым қадамда бастаңыз</h2>
+        <div class="sc-3eb21692-2 fHJqAC">
+            <div id="3oCta7DXAL1IhWAIRA24mQ" class="sc-3eb21692-3 fJUeNj">
+                <div class="sc-3eb21692-4 hExJaf">
+                    <span class="sc-3eb21692-7 ooYwb cb_typographyClassNameNew_largeTitle_lhdo">1</span>
+                </div>
+                <div class="sc-3eb21692-6 iESXdM">
+                    <p class="sc-3eb21692-9 fmcXlx cb_typographyClassNameNew_title_t1ap">Өтініш беріңіз</p>
+                </div>
+            </div>
+            <div id="3r3z7Tucw8oDT4sQPE4iiP" class="sc-3eb21692-3 fJUeNj">
+                <div class="sc-3eb21692-4 hExJaf">
+                    <span class="sc-3eb21692-7 ooYwb cb_typographyClassNameNew_largeTitle_lhdo">2</span>
+                </div>
+                <div class="sc-3eb21692-6 iESXdM">
+                    <p class="sc-3eb21692-9 fmcXlx cb_typographyClassNameNew_title_t1ap">Растау алыңыз</p>
+                </div>
+            </div>
+            <div id="1kmjOfF83ENVvYZt8fKEMj" class="sc-3eb21692-3 fJUeNj">
+                <div class="sc-3eb21692-4 hExJaf">
+                    <span class="sc-3eb21692-7 ooYwb cb_typographyClassNameNew_largeTitle_lhdo">3</span>
+                </div>
+                <div class="sc-3eb21692-6 iESXdM">
+                    <p class="sc-3eb21692-9 fmcXlx cb_typographyClassNameNew_title_t1ap">Табыс табуды бастаңыз!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Кнопка для подачи заявки -->
+    <section class="section">
+        <h2>Біздің командамыздың бір бөлігі болуға дайынсыз ба?</h2>
+        <p>Өтініш беру үшін төмендегі батырманы басыңыз!</p>
+        <a href="{{ url_for('application') }}" class="button">Өтініш беру</a>
+    </section>
+
+    <!-- Часто задаваемые вопросы -->
+    <section class="faq">
+        <h2>Жиі қойылатын сұрақтар</h2>
+        <div>
+            <h3>Өтініш беру қанша уақыт алады?</h3>
+            <p>Өтінішті толтыру үшін 10 минуттан аз уақыт кетеді. Егер сіз бұрын Jyldam қолданбасын қолданбаған болсаңыз, аккаунт жасап, негізгі мәліметтеріңізді енгізіп, қажетті құжаттарды жүктеу керек болады.</p>
+        </div>
+        <div>
+            <h3>Қандай талаптар бар?</h3>
+            <p>18 жастан асқан және жұмыс істеуге рұқсаты бар болу керек. Қосымша талаптар таңдаған көлік түріне байланысты: велосипед, мопед немесе көлік.</p>
+        </div>
+        <div>
+            <h3>Jyldam мен қарапайым жеткізу компанияларының айырмашылығы неде?</h3>
+            <p>Ең икемді кесте. Jyldam серіктес курьерлері өздері қалаған уақытта және қалаған жерде жеткізу жасайды. Сіз тәуелсіз мердігерсіз, сондықтан кестені өзіңіз орнатасыз.</p>
+        </div>
+        <div>
+            <h3>Қосымша курьерлер үшін қалай жұмыс істейді?</h3>
+            <p>Jyldam Courier қосымшасы ең жақсы маршрутты табуға және нақты уақыт режимінде табысыңызды бақылауға көмектеседі. Өтінішіңіз мақұлданғаннан кейін сіз тапсырыстар ала бастайсыз.</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Jyldam. Барлық құқықтар қорғалған.</p>
+</footer>
+
+<script>
+    // Раскрытие ответов на вопросы
+    document.querySelectorAll('.faq h3').forEach(item => {
+        item.addEventListener('click', () => {
+            const p = item.nextElementSibling;
+            p.style.display = p.style.display === 'block' ? 'none' : 'block';
+        });
+    });
+</script>
+
+</body>
+</html>

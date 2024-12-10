@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Өтініш</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{{ url_for('logout') }}">Шығу</a>
+        </nav>
+        <h1>Өтініш беру үшін анкетаны толтырыңыз</h1>
+    </header>
+
+    <main>
+        <form method="POST">
+            <label for="last_name">Тегі:</label>
+            <input type="text" id="last_name" name="last_name" required><br>
+
+            <label for="first_name">Аты:</label>
+            <input type="text" id="first_name" name="first_name" required><br>
+
+            <label for="patronymic">Әкесінің аты:</label>
+            <input type="text" id="patronymic" name="patronymic" required><br>
+
+            <label for="contact_number">Байланыс нөмірі:</label>
+            <input type="text" id="contact_number" name="contact_number" required><br>
+
+            <label for="city">Қала:</label>
+            <input type="text" id="city" name="city" required><br>
+
+            <label for="transport_type">Көлік түрі:</label>
+            <select name="transport_type" id="transport_type" required>
+                <option value="peshiy">Жаяу</option>
+                <option value="avtomobil">Автомобиль</option>
+                <option value="moped">Мопед</option>
+            </select><br>
+
+            <button type="submit">Өтініш жіберу</button>
+        </form>
+    </main>
+</body>
+</html>

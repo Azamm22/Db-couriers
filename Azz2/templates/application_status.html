@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Өтініш статусы</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{{ url_for('logout') }}">Шығу</a>
+        </nav>
+        <h1>Өтінішіңіздің статусы</h1>
+    </header>
+
+    <main>
+        <p>{{ status }}</p>
+        <a href="{{ url_for('courier_dashboard') }}">Курьер кабинетіне оралу</a>
+    </main>
+</body>
+</html>
